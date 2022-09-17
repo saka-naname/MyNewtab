@@ -1,0 +1,42 @@
+{
+  "name": "mynewtab",
+  "version": "1.0.0",
+  "description": "NewTab chrome extension",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx webpack",
+    "watch": "npx webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saka-naname/MyNewtab.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saka-naname/MyNewtab/issues"
+  },
+  "homepage": "https://github.com/saka-naname/MyNewtab#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.11",
+    "babel-loader": "^8.2.5",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.7.1",
+    "json-loader": "^0.5.7",
+    "merge-json-webpack-plugin": "^6.1.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "postcss": "^8.4.16",
+    "postcss-loader": "^7.0.1",
+    "tailwindcss": "^3.1.8",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "write-file-webpack-plugin": "^4.5.1",
+    "zip-webpack-plugin": "^4.0.1"
+  },
+  "dependencies": {
+    "daisyui": "^2.28.0",
+    "jquery": "^3.6.1"
+  }
+}

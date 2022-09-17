@@ -1,0 +1,9 @@
+{
+    "name": "My NewTab",
+    "manifest_version": 3,
+    "description": "最強のNewTabページを作る",
+    "permissions": [],
+    "chrome_url_overrides": {
+        "newtab": "index.html"
+    }
+}
