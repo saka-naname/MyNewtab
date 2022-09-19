@@ -8,6 +8,7 @@ const webpack = require("webpack");
 const ZipPlugin = require("zip-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const MergeJsonPlugin = require("merge-json-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const isProduction = process.env.NODE_ENV == "production";
 
@@ -16,14 +17,19 @@ const stylesHandler = "style-loader";
 const packageJson = require("./package.json");
 
 const config = {
-  entry: "./src/index.js",
+  entry: "./src/index.tsx",
   output: {
     path: path.resolve(__dirname, "dist"),
+    filename: "main.js",
   },
   devtool: "cheap-module-source-map", //参考になったページ: https://stackoverflow.com/questions/48047150/chrome-extension-compiled-by-webpack-throws-unsafe-eval-error
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
+    new HtmlWebpackPlugin({
+      template: "./public/index.html",
+      filename: "./index.html"
+    }),
     new MergeJsonPlugin({
       force: false,
       groups: [
@@ -47,12 +53,6 @@ const config = {
             to: "./icons",
             context: "src/icons",
             noErrorOnMissing: true,
-          },
-          {
-            from: "index.html",
-            to: "./",
-            context: "src",
-            noErrorOnMissing: false,
           },
           {
             from: "*.js",
@@ -99,6 +99,10 @@ const config = {
   ],
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        loader: "awesome-typescript-loader",
+      },
       {
         test: /\.(js|jsx)$/i,
         loader: "babel-loader",
